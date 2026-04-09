@@ -1,4 +1,6 @@
-# Interactive React Wall Calendar Challenge
+# Interactive React Wall Calendar
+
+🌟 **Live Demo:** [https://webgl-react-calendar.vercel.app/](https://webgl-react-calendar.vercel.app/)
 
 A highly polished, interactive React/Next.js component built to emulate a premium, modern physical wall calendar aesthetic. The core engine is built strictly on the client-side utilizing React hooks, Framer Motion for liquid transitions, and WebGL for ambient visualizations.
 

@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Interactive React Wall Calendar Challenge
 
-## Getting Started
+A highly polished, interactive React/Next.js component built to emulate a premium, modern physical wall calendar aesthetic. The core engine is built strictly on the client-side utilizing React hooks, Framer Motion for liquid transitions, and WebGL for ambient visualizations.
 
-First, run the development server:
+## 🚀 Features & Engineering Implementation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 1. The "Wall Calendar" Aesthetic & Theming
+- **Dynamic Hero Widget:** Features a dedicated `CalendarHero` segment. The entire application transitions its primary accent colors depending on the active month, mapping visual hierarchy elegantly dynamically.
+- **WebGL Interactive Backgrounds:** Built atop a `Liquid Ether` WebGL layer that interacts with the user's cursor forces while providing ultra-smooth, premium ambient illumination securely isolated in a canvas layer.
+- **Glassmorphism UI:** Complete transition to a modern dashboard format using backdrop-blur utility layers mimicking physical frosted glass to keep typography legible regardless of the background complexities. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Day Range Selector engine
+- Powered by a custom `useRangeSelect` hook, the calendar inherently supports selecting ranges across the month.
+- Distinct CSS structural styling using `framer-motion` visually bonds the Start Node and End Node via contiguous liquid pills (rather than disjointed boxes).
+- An intelligent, floating `RangeBar` logs the current active gap (e.g., *12 Days*) preventing user confusion in long strings.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Integrated Notes & Local Storage
+- Created a custom `useNotes` hook utilizing the `localStorage` browser API to satisfy the strictly client-side data persistence requirement. 
+- You can apply custom text to any single day or any tracked range.
+- The system renders independent color-coded dot-markers on the calendar for both your tracked Notes (`blue`) and integrated National Holidays (`red`) simultaneously without layout-shifts.
+- **Side-by-Side Console:** Avoids endless vertical window stretching by containing appended notes inside a customized horizontal flex container locked to a rigid height, implementing iOS-style `snap-y` navigation.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Advanced UX & "Creative Liberties" (Bonus Features)
+- **iOS-Inspired Date Wheel:** Implemented an inline, modal date picker using math-based positional scrolling. It sits safely behind an opaque mask, preventing grid-overlap while granting instant century-jumping.
+- **Floating "Today" Anchor:** Added an auto-hiding glass floating action button (FAB) that dynamically renders out the bottom-right of the calendar grid when navigating external decades/months. A click instantly restores interpolation back to the current real-world date.
+- **Web Audio Haptic Actuators:** Attached an embedded Web Audio `<OscillatorNode>` mathematically tied to the scroll position on the Date picker. Every time you cross a snap boundary, it sweeps a 150hz->40hz frequency triggering a highly satisfying physical "Tick" directly in the browser.
+- **National Holiday Integration:** Actively pulls from a database of fixed and estimated regional holidays, displaying them dynamically in an animated tracker beneath the artwork. 
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 💻 How to Run Locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Requirements
+- Node.js (v18 or higher)
+- NPM or PNPM
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Quickstart
+1. Clone the repository to your environment.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Boot up the NextJS development server:
+   ```bash
+   npm run dev
+   ```
+4. Access the application locally on `http://localhost:3000`
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Tech Stack
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Visuals:** Three.js / ReactBits
+- **Icons:** Lucide React
